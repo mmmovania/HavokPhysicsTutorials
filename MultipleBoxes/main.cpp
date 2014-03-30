@@ -1,5 +1,3 @@
-#include <GL/glew.h>
-#include <GL/wglew.h>
 
 #include <GL/freeglut.h> 
 #include <iostream>
@@ -8,22 +6,7 @@
 //Havok headers
 
 // Keycode
-#include <Common/Base/keycode.cxx>
-
-// This excludes libraries that are not going to be linked
-// from the project configuration, even if the keycodes are
-// present
-//#undef HK_FEATURE_PRODUCT_AI
-//#undef HK_FEATURE_PRODUCT_ANIMATION
-//#undef HK_FEATURE_PRODUCT_CLOTH
-//#undef HK_FEATURE_PRODUCT_DESTRUCTION
-//#undef HK_FEATURE_PRODUCT_BEHAVIOR
-//#define HK_FEATURE_REFLECTION_PHYSICS
-//#define HK_CLASSES_FILE <Common/Serialize/Classlist/hkClasses.h>
-//#define HK_EXCLUDE_FEATURE_MemoryTracker
-//#define HK_EXCLUDE_FEATURE_SerializeDeprecatedPre700
-//#define HK_EXCLUDE_FEATURE_RegisterVersionPatches 
-//#define HK_EXCLUDE_LIBRARY_hkGeometryUtilities
+#include <Common/Base/keycode.cxx> 
 #include <Common/Base/Config/hkProductFeatures.cxx>
 
 // Math and base includes
@@ -51,7 +34,6 @@
 #include <vector>
 
 //Add linker libraries
-#pragma comment(lib, "glew32.lib") 
 #pragma comment(lib, "hkBase.lib") 
 #pragma comment(lib, "hkCompat.lib")
 #pragma comment(lib, "hkGeometryUtilities.lib")              
@@ -72,17 +54,7 @@
 #pragma comment(lib, "hkcdCollide.lib")
 #pragma comment(lib, "hkcdInternal.lib")
 
-
-//#pragma comment(lib, "hkgBridge.lib")
-//#pragma comment(lib, "hkgCommon.lib")
-//#pragma comment(lib, "hkgOglES.lib")
-//#pragma comment(lib, "hkgOglES2.lib")
-//#pragma comment(lib, "hkgOgls.lib")
-//#pragma comment(lib, "hkgDx9s.lib")
-//#pragma comment(lib, "hkgDx11.lib")
-//#pragma comment(lib, "hkgSoundCommon.lib")
-//#pragma comment(lib, "hkgSoundXAudio2.lib")
-
+ 
 const int	WINDOW_WIDTH=800, 
 WINDOW_HEIGHT=600;
 
@@ -399,10 +371,7 @@ void StepHavok() {
 	g_pThreadPool->clearTimerData();
 }
 
-void ShutdownHavok() {  
-	 
-	hkReferencedObject::lockAll();
-	
+void ShutdownHavok() {   
 	g_pWorld->markForWrite();
 	for(int i=0;i<MAX_BOXES;++i) {
 		boxes[i]->removeReference();
@@ -423,9 +392,7 @@ void ShutdownHavok() {
 	if (g_bVdbEnabled)
 		ShutdownVDB();
 		 
-	boxes.clear();
-
-	hkReferencedObject::unlockAll();
+	boxes.clear(); 
 	 
 	hkBaseSystem::quit();
     hkMemoryInitUtil::quit();
@@ -446,7 +413,7 @@ void InitGL() {
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, mat_diffuse);
 
 	glDisable(GL_LIGHTING);
-	wglSwapIntervalEXT(1);
+	 
 }
 
 void OnReshape(int nw, int nh) {
@@ -549,8 +516,8 @@ void main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-	glutCreateWindow("GLUT Havok Demo - Getting Started");
-	glewInit();
+	glutCreateWindow("GLUT Havok Demo - Multiple Boxes");
+	 
 
 	glutDisplayFunc(OnRender);
 	glutIdleFunc(OnIdle);

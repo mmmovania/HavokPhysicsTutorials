@@ -52,7 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;HK_CONFIG_SIMD=1;HK_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(LIBRARIES_ROOT)\freeglut-2.8.1\include;$(HAVOK_ROOT)/Source;$(LIBRARIES_ROOT)/glew-1.10.0/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LIBRARIES_ROOT)\freeglut-2.8.1\include;$(HAVOK_ROOT)/Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <FloatingPointModel>Fast</FloatingPointModel>
       <FloatingPointExceptions>false</FloatingPointExceptions>
@@ -63,7 +63,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(LIBRARIES_ROOT)\freeglut-2.8.1\lib\x86\Debug\;$(HAVOK_ROOT)\Lib\win32_vs2012_win7\debug_dll;$(LIBRARIES_ROOT)/glew-1.10.0/lib/Release/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(LIBRARIES_ROOT)\freeglut-2.8.1\lib\x86\Debug\;$(HAVOK_ROOT)\Lib\win32_vs2012_win7\debug_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
