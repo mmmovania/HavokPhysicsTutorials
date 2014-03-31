@@ -534,17 +534,17 @@ void OnShutdown() {
 
 void PickActor(int x, int y) { 
 
-	hkVector4f rayOrigin(0,0,0,0);
-	hkVector4f rayDirection(0,0,0,0);
+	hkVector4f rayStart(0,0,0,0);
+	hkVector4f rayEnd(0,0,0,0);
 
-	ViewUnProject(x, y, 0.0f, rayOrigin);
-	ViewUnProject(x, y, 1.0f, rayDirection);
+	ViewUnProject(x, y, 0.0f, rayStart);
+	ViewUnProject(x, y, 1.0f, rayEnd);
 	 
 	hkpWorldRayCastInput input;
 	hkpClosestRayHitCollector result; 
 
-	input.m_from = rayOrigin;
-	input.m_to = rayDirection;
+	input.m_from = rayStart;
+	input.m_to = rayEnd;
 	input.m_filterInfo = 0;
 
 	g_pWorld->lock();
