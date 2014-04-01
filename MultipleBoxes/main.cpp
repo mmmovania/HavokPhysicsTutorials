@@ -1,3 +1,5 @@
+//Author: Dr. Muhammad Mobeen Movania
+//Last Modified: 1 April 2014 13:15 PST
 
 #include <GL/freeglut.h> 
 #include <iostream>
